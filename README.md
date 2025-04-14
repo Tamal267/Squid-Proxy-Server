@@ -97,17 +97,10 @@ Status
 sudo systemctl status squid
 ```
 
-Add certificate to target the target pc located in in `/var/log/squid/myCA.pem`
+Add certificate to target the target pc located in in `/etc/squid/myCA.pem`
 
 
 Intercepting specific links
 ```bash
-sudo tail -f /var/log/squid/access.log | \
-sed 's/^\([0-9]*\)\./\1 /' | \
-while read -r line; do \
-    timestamp=$(echo "$line" | cut -d ' ' -f 1); \
-    formatted_time=$(date -d @$timestamp +"%Y-%m-%d %H:%M:%S"); \
-    echo "$line" | sed "s/^\($timestamp\)/$formatted_time/"; \
-done | \
-grep -P 'codeforces\.com/(contests|problemset|blog)|atcoder\.jp/contests|www\.google\.com/search\?|chatgpt\.com/|www\.deepseek\.com/|vjudge\.net/(?!contest/708504|contest/rank/single/708504|cdn-cgi/|contest/rank/merged/|static/bundle/|favicon\.ico|util/serverTime)'
+sudo tail -f /var/log/squid/access.log | grep -P 'codeforces\.com/(contest|problemset|blog)|atcoder\.jp/contests|www\.google\.com/search\?|chatgpt\.com/|www\.deepseek\.com/|vjudge\.net/(?!contest/708504|contest/rank/single/708504|cdn-cgi/|contest/rank/merged/|static/bundle/|favicon\.ico|util/serverTime)'
 ```
