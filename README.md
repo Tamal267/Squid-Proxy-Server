@@ -102,5 +102,5 @@ Add certificate to target the target pc located in in `/etc/squid/myCA.pem`
 
 Intercepting specific links
 ```bash
-sudo tail -f /var/log/squid/access.log | grep -P 'codeforces\.com/(contest|problemset|blog)|atcoder\.jp/contests|www\.google\.com/search\?|chatgpt\.com/|www\.deepseek\.com/|vjudge\.net/(?!contest/708504|contest/rank/single/708504|cdn-cgi/|contest/rank/merged/|static/bundle/|favicon\.ico|util/serverTime)'
+sudo tail -f /var/log/squid/access.log | grep -P 'codeforces\.com/(contest|problemset|blog)|atcoder\.jp/contests|www\.google\.com/search\?|chatgpt\.com/|www\.deepseek\.com/|github\.com/|vjudge\.net/(?!contest/708504|contest/rank/single/708504|cdn-cgi/|contest/rank/merged/|static/bundle/|favicon\.ico|util/serverTime)'
 ```
